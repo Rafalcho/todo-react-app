@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 export const TodoInput = (props) => (
   <form onSubmit={props.handleSubmit}>
     <input
+      className='add-input'
       type='text'
       value={props.newTodo}
       onChange={props.handleInputChange}
     />
-  <input type='submit' value='Add'/>
+  <input
+    type='submit'
+    value='Add'
+    className='btn btn-primary'/>
 
   </form>
 );

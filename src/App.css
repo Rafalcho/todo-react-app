@@ -1,3 +1,43 @@
+
+
 .App {
+  margin: 50px auto;
+  width: 400px;
+}
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  margin: 5px 0;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+
+.add-input {
+  margin: 20px 5px 20px 0;
+  padding: 4px;
+  width: 80%
+}
+
+.todo-list>li:hover .remove-item {
+  visibility: visible;
+}
+
+.remove-item {
+  visibility: hidden;
+  float: left;
+  margin-right: 10px;
+}
+
+input[type="checkbox"].check {
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.header {
   text-align: center;
 }

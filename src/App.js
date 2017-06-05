@@ -49,6 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <h1 className='header'>Todo App</h1>
         <TodoInput
           newTodo={this.state.newTodo}
           handleInputChange={this.handleInputChange}
