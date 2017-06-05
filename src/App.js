@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {TodoInput} from './components/TodoInput';
 import {TodoList} from './components/TodoList';
+import {addTodo, generateNumber} from './utils/actions';
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +26,18 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const id = generateNumber();
+    const newTodo = {
+      id,
+      name: this.state.newTodo,
+      isDone: false,
+    }
+    const updatedTodoList = addTodo(this.state.todoItems, newTodo);
+
+    this.setState({
+      newTodo: '',
+      todoItems: updatedTodoList,
+    })
   }
 
   render() {
