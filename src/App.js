@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {TodoInput} from './components/TodoInput';
 import {TodoList} from './components/TodoList';
-import {addTodo, generateNumber} from './utils/actions';
+import {addTodo, generateNumber, deleteTodo} from './utils/actions';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     const id = generateNumber();
     const newTodo = {
       id,
@@ -38,7 +39,12 @@ class App extends Component {
       newTodo: '',
       todoItems: updatedTodoList,
     })
-  }
+  };
+
+  handleRemove = (id, event) => {
+    const updatedTodos = deleteTodo(this.state.todoItems, id);
+    this.setState({todoItems: updatedTodos})
+  };
 
   render() {
     return (
@@ -50,6 +56,7 @@ class App extends Component {
         />
       <TodoList
         todoItems={this.state.todoItems}
+        handleRemove={this.handleRemove}
       />
       </div>
     );
