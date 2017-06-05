@@ -11,7 +11,7 @@ class App extends Component {
       todoItems: [
         {id: 1, name: 'first', isDone: false},
         {id: 2, name: 'second', isDone: false},
-        {id: 3, name: 'third', isDone: false}
+        {id: 3, name: 'third', isDone: true}
       ],
     }
   }

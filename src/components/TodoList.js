@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {TodoItem} from './TodoItem';
 
 export const TodoList = (props) => (
   <ul className='todo-list'>
     {props.todoItems.map(item => (
-      <li>{item.name}</li>
+      <TodoItem
+        key={item.id}
+        id={item.id}
+        name={item.name}
+        isDone={item.isDone}
+      />
     ))}
   </ul>
 );
