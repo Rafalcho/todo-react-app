@@ -23,3 +23,15 @@ export const toggleDone = (todo) => (
     isDone: !todo.isDone,
   }
 );
+
+export const updateItem = (todoItems, id) => {
+  const todo = findTodo(todoItems, id);
+  const updatedTodo = toggleDone(todo);
+  const todoIndex = todoItems.findIndex(todo => todo.id === id);
+
+  return [
+    ...todoItems.slice(0, todoIndex),
+    updatedTodo,
+    ...todoItems.slice(todoIndex + 1)
+  ];
+};
