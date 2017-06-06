@@ -13,3 +13,7 @@ export const deleteTodo = (todoItems, id) => {
     ...todoItems.slice(removeId + 1)
     ];
 };
+
+export const findTodo = (todoItems, id) => {
+  return todoItems.find(item => item.id === id);
+};
