@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {TodoInput} from './components/TodoInput';
 import {TodoList} from './components/TodoList';
-import {addTodo, generateNumber, deleteTodo} from './utils/actions';
+import {addTodo, generateNumber, deleteTodo, updateItem} from './utils/actions';
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +46,13 @@ class App extends Component {
     this.setState({todoItems: updatedTodos})
   };
 
+  handleToggle = (id) => {
+    const updatedTodos = updateItem(this.state.todoItems, id);
+    this.setState({
+      todoItems: updatedTodos
+    })
+  }
+
   render() {
     return (
       <div className='App'>
@@ -58,6 +65,7 @@ class App extends Component {
       <TodoList
         todoItems={this.state.todoItems}
         handleRemove={this.handleRemove}
+        handleToggle={this.handleToggle}
       />
       </div>
     );

@@ -11,6 +11,7 @@ export const TodoList = (props) => (
         name={item.name}
         isDone={item.isDone}
         handleRemove={props.handleRemove}
+        handleToggle={props.handleToggle}
       />
     ))}
   </ul>

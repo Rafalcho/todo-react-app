@@ -41,3 +41,8 @@ input[type="checkbox"].check {
 .header {
   text-align: center;
 }
+
+.completed {
+  color: grey;
+  text-decoration: line-through;
+}
