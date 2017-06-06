@@ -14,6 +14,12 @@ export const deleteTodo = (todoItems, id) => {
     ];
 };
 
-export const findTodo = (todoItems, id) => {
-  return todoItems.find(item => item.id === id);
-};
+export const findTodo = (todoItems, id) => todoItems.find(item => item.id === id);
+
+export const toggleDone = (todo) => (
+  {
+    id: todo.id,
+    name: todo.name,
+    isDone: !todo.isDone,
+  }
+);

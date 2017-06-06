@@ -1,4 +1,4 @@
-import {addTodo, deleteTodo, findTodo} from './actions.js';
+import {addTodo, deleteTodo, findTodo, toggleDone} from './actions.js';
 
 test('addTodo should add new todo to the array', () => {
   const oldArray = [
@@ -83,4 +83,19 @@ test('findItem should return todo with the given id', () => {
   const result = findTodo(oldArray, id);
 
   expect(result).toEqual(expected);
+});
+
+test('toggleDone should toggle the todo isDone state', () => {
+  const todo = {id: 1, name: 'first', isDone: false};
+  const expected = {id: 1, name: 'first', isDone: true};
+
+  const result = toggleDone(todo);
+
+  expect(result).toEqual(expected);
+});
+
+test('toggleDone should not change the original todo', () => {
+  const todo = {id: 1, name: 'first', isDone: false};
+  const result = toggleDone(todo);
+  expect(result).not.toBe(todo);
 });
