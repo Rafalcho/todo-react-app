@@ -25,20 +25,25 @@ class App extends Component {
   };
 
   handleSubmit = (event) => {
-    event.preventDefault();
+    if (this.state.newTodo) {
+      event.preventDefault();
 
-    const id = generateNumber();
-    const newTodo = {
-      id,
-      name: this.state.newTodo,
-      isDone: false,
+      const id = generateNumber();
+      const newTodo = {
+        id,
+        name: this.state.newTodo,
+        isDone: false,
+      }
+      const updatedTodoList = addTodo(this.state.todoItems, newTodo);
+
+      this.setState({
+        newTodo: '',
+        todoItems: updatedTodoList,
+      })
+    } else {
+      event.preventDefault();
     }
-    const updatedTodoList = addTodo(this.state.todoItems, newTodo);
 
-    this.setState({
-      newTodo: '',
-      todoItems: updatedTodoList,
-    })
   };
 
   handleRemove = (id, event) => {
