@@ -9,11 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       newTodo: '',
-      todoItems: [
-        {id: 1, name: 'first', isDone: false},
-        {id: 2, name: 'second', isDone: false},
-        {id: 3, name: 'third', isDone: true}
-      ],
+      todoItems: [],
     }
   }
 
@@ -40,13 +36,14 @@ class App extends Component {
         newTodo: '',
         todoItems: updatedTodoList,
       })
+
     } else {
       event.preventDefault();
     }
 
   };
 
-  handleRemove = (id, event) => {
+  handleRemove = (id) => {
     const updatedTodos = deleteTodo(this.state.todoItems, id);
     this.setState({todoItems: updatedTodos})
   };
@@ -67,11 +64,11 @@ class App extends Component {
           handleInputChange={this.handleInputChange}
           handleSubmit={this.handleSubmit}
         />
-      <TodoList
-        todoItems={this.state.todoItems}
-        handleRemove={this.handleRemove}
-        handleToggle={this.handleToggle}
-      />
+        <TodoList
+          todoItems={this.state.todoItems}
+          handleRemove={this.handleRemove}
+          handleToggle={this.handleToggle}
+        />
       </div>
     );
   }
